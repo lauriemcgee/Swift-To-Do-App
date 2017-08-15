@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+	@IBOutlet weak var myTextField: UITextField!
 	@IBOutlet weak var myLabel: UILabel!
 	// the ! means I know otherLabel can possibly be nil, but it's not going to be nil
 	@IBOutlet var otherLabel: UILabel!
@@ -18,6 +19,12 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 	}
+	
+	@IBAction func didTapOtherButton(_ sender: Any) {
+		let name = myTextField.text!
+		otherLabel.text = "Hi \(name)!"
+	}
+	
 	@IBAction func didTapButton(_ sender: Any) {
 		myLabel.text = "Changed with Code!"
 	}
