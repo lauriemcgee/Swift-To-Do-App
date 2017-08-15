@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 	@IBAction func didTapOtherButton(_ sender: Any) {
 		let name = myTextField.text!
 		otherLabel.text = "Hi \(name)!"
+		myTextField.resignFirstResponder()
 	}
 	
 	@IBAction func didTapButton(_ sender: Any) {
