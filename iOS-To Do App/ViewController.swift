@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 	@IBOutlet weak var myTextField: UITextField!
 	@IBOutlet weak var myLabel: UILabel!
 	// the ! means I know otherLabel can possibly be nil, but it's not going to be nil
@@ -16,8 +16,8 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-		
+		// Assign ViewController as a delegate of the text field in StoryBoard, current, or with:
+		// myTextField.delegate = self
 	}
 	
 	@IBAction func didTapOtherButton(_ sender: Any) {
@@ -26,10 +26,15 @@ class ViewController: UIViewController {
 		myTextField.resignFirstResponder()
 	}
 	
-	@IBAction func didTapButton(_ sender: Any) {
-		myLabel.text = "Changed with Code!"
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
 	}
-
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		myTextField.resignFirstResponder()
+		return false
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
