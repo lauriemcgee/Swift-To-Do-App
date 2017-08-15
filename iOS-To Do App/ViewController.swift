@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 	@IBOutlet weak var myLabel: UILabel!
+	// the ! means I know otherLabel can possibly be nil, but it's not going to be nil
+	@IBOutlet var otherLabel: UILabel!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
